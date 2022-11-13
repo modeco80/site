@@ -1,0 +1,67 @@
+/*
+ * The stylesheet I use for the pages on my website.
+ *
+ * There are probably many like it, but it is mine.
+ */
+
+body,html {
+	background-color: rgb(32, 32, 32);
+	font-family: sans-serif;
+	color: rgb(180, 180, 180);
+}
+
+/** Hacks for Nginx fancyindex, because it kinda sucks */
+th {
+    background: rgb(32, 32, 32);
+}
+
+tr:nth-child(even) {
+    background: rgb(32, 32, 32);
+}
+
+.main {
+	font-size: 1em;
+    /*
+	position: absolute;
+	width: 60vw;
+	right: 15vw;
+	top: 10vh;
+    */
+}
+
+/** top level header */
+.toplevel-header {
+    font-size: 3em;
+
+    padding: 0.25em 0 0.25em 0;
+}
+
+/** Section header */
+.section-header {
+	font-size: 1.75em;
+    padding: 0.75em 0 0.25em 0;
+}
+
+/** Section content **/
+.section-content {
+    font-size: 0.85em;
+    padding: 0 0 0.15em 0;
+}
+
+/** Prettier links */
+a {
+    /*color: rgb(0, 140, 200);*/
+    color: rgb(100, 140, 200);
+}
+
+a:visited {
+    /*color: rgb(100, 140, 200);*/
+    color: rgb(160, 140, 200);
+}
+
+/* A basic footer (demonstrated on my index page!) */
+.footer {
+    position: sticky;
+    text-align: center;
+    top: 100vh;
+}

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Simple little deployment script for my website.
+#
+# (C) 2022 modeco80 <lily.modeco80@protonmail.ch>
+#
+# SPDX-License-Identifier: GPL-3.0
+
+# Place to deploy things to.
+#
+# This defaults to a webroot on the box which hosts my site, as
+# it's a sane default.. for my website!
+DEPLOYDIR="/home/lily/www"
+
+# Utilty functions
+_CACHED_BASENAME="$(basename $0)"
+log() {
+    echo "[$_CACHED_BASENAME] $@"
+}
+
+# Ensure a directory (or the tree) exists
+ensure() {
+    [[ ! -d "$1" ]] && {
+        log "making directory \"$1\"";
+        mkdir $1;
+    };
+}
+
+# Deployment stuff
+
+deploy() {
+    # ensure the directory tree exists.
+    # while cp(1) will mkdir if it has to i'd rather
+    # just do it
+    ensure ${DEPLOYDIR}
+    ensure ${DEPLOYDIR}/res
+    ensure ${DEPLOYDIR}/res/styles
+    ensure ${DEPLOYDIR}/res/images
+
+    log "copying HTML & static assets"
+
+    cp -r html/* ${DEPLOYDIR}
+    cp -r res/* ${DEPLOYDIR}/res
+
+    log "done deploying to \"${DEPLOYDIR}\"."
+}
+
+# main
+
+# alternate deployment directory
+if [ "$1" != "" ]; then
+    DEPLOYDIR="$1"
+    log "using alternative deployment directory \"${DEPLOYDIR}\""
+fi
+
+deploy
