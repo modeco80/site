@@ -2,12 +2,19 @@
 * The stylesheet I use for the pages on my website.
 *
 * There are probably many like it, but it is mine.
+*
+* TODO:
+* 	- use variables
+* 	- seperate out nginx fancyindex hacks into a new file which @import's this one
+* 	- make this not painfully awful
 */
 
 body,html {
 	background-color: rgb(32, 32, 32);
 	font-family: sans-serif;
 	color: rgb(180, 180, 180);
+
+	font-size: 1em;
 }
 
 /** Hacks for Nginx fancyindex, because it kinda sucks */
@@ -19,14 +26,9 @@ tr:nth-child(even) {
 	background: rgb(32, 32, 32);
 }
 
+/** main content (currently unused) */
 .main {
-	font-size: 1em;
-	/*
-	position: absolute;
-	width: 60vw;
-	right: 15vw;
-	top: 10vh;
-	*/
+
 }
 
 /** top level header */
@@ -50,12 +52,10 @@ tr:nth-child(even) {
 
 /** Prettier links */
 a {
-	/*color: rgb(0, 140, 200);*/
 	color: rgb(100, 140, 200);
 }
 
 a:visited {
-	/*color: rgb(100, 140, 200);*/
 	color: rgb(160, 140, 200);
 }
 
